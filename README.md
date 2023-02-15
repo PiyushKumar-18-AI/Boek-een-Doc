@@ -1,16 +1,3 @@
-# boek_een_doc
+# Boek_een_Deoc
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Boek-enn-Doc is a Doctor Appointment App built using Flutter with Laravel as the Backend and Dashboard. The fundamental concept behind this software is to allow users to schedule appointments with doctors using a mobile app. And, in the subsequent films in this series, the primary functions will be displayed, such as Laravel Dashboard, making an appointment with a registered doctor, seeing doctor details, rating and feedback submission, and so on.
