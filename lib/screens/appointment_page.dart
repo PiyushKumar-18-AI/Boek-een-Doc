@@ -3,7 +3,7 @@ import 'package:boek_een_doc/utils/config.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentPage extends StatefulWidget {
-  const AppointmentPage({super.key});
+  const AppointmentPage({Key? key}) : super(key: key);
 
   @override
   State<AppointmentPage> createState() => _AppointmentPageState();
@@ -62,7 +62,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'Appointment Schedule',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
