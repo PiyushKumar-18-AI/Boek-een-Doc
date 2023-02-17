@@ -1,3 +1,4 @@
+import 'package:boek_een_doc/components/button.dart';
 import 'package:boek_een_doc/components/custom_appbar.dart';
 import 'package:boek_een_doc/utils/config.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +34,21 @@ class _DoctorDetailsState extends State<DoctorDetails> {
       ),
       body: SafeArea(
           child: Column(
-        children: const <Widget>[
+        children: <Widget>[
           AboutDoctor(),
+          DetailBody(),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Button(
+              width: double.infinity,
+              title: 'Book Appointment',
+              onPressed: () {
+                Navigator.of(context).pushNamed('booking_page');
+              },
+              disable: false,
+            ),
+          ),
         ],
       )),
     );
@@ -96,6 +110,42 @@ class AboutDoctor extends StatelessWidget {
   }
 }
 
+class DetailBody extends StatelessWidget {
+  const DetailBody({
+    Key? key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Config.spaceSmall,
+          const DoctorInfo(),
+          Config.spaceMedium,
+          const Text(
+            'About Doctor',
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          ),
+          Config.spaceSmall,
+          Text(
+            'Dr. Richard Tan is an experience Dentist Specialist at Sarawak, graduated since 2008, and completed his/her training at Sungai Buloh General Hospital.',
+            style: TextStyle(
+              color: Colors.grey[700],
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+            ),
+            softWrap: true,
+            textAlign: TextAlign.justify,
+          )
+        ],
+      ),
+    );
+  }
+}
+
 class DoctorInfo extends StatelessWidget {
   const DoctorInfo({
     Key? key,
@@ -105,12 +155,64 @@ class DoctorInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     Config().init(context);
     return Row(
-      children: <Widget>[
-        Expanded(
-            child: Container(
-          decoration: BoxDecoration(),
-        ))
+      children: const <Widget>[
+        InfoCard(label: 'Paitents', value: '109'),
+        SizedBox(
+          width: 15,
+        ),
+        InfoCard(label: 'Experiences', value: '10 Years'),
+        SizedBox(
+          width: 15,
+        ),
+        InfoCard(label: 'Rating', value: '4.6')
       ],
+    );
+  }
+}
+
+class InfoCard extends StatelessWidget {
+  const InfoCard({Key? key, required this.label, required this.value})
+      : super(key: key);
+
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Config.primaryColor,
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: 15,
+        ),
+        child: Column(
+          children: <Widget>[
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
